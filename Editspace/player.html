@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" type="text/css" href="css/player.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+    <header></header>
+    
+    <!-- 主内容模块 -->
+    <div class="container">
+        <div class="left">
+            <div class="pic">
+                <img alt="图片无法显示" src="image/0.jpg" width=100% height=100%>
+            </div>
+            <div class="download">
+                <span></span>
+            </div>
+        </div>
+        <div class="song">
+            <div class="s-info">
+                <div class="s-name">
+                    <span></span>
+                </div>
+                <div class="s-singer">
+                    <span>小鬼</span>
+                </div>
+            </div>
+            <div class="s-lyrics">
+            
+            </div>
+        </div>
+    </div>
+    
+    <!-- 按钮、进度条 -->
+    <div class="progress">
+        <div class="p-content">
+            <div class="p-content-left">
+                <a href="#" class="prev">后退</a>
+                <a href="#" class="play">播放</a>
+                <a href="#" class="next">前进</a>
+            </div>                        <!-- 三个按钮 -->
+            <div class="p-content-img">
+			    <img alt="图片无法显示" src="image/0.jpg" width=100% height=100%>
+			</div>                        <!-- 歌曲图片 -->
+            <div class="p-content-bar">                              <!-- 进度条、歌曲名称和时间 -->
+                <div class="song-info">
+				    <span><i id="curTime">00:00</i><i>/</i><i id="durTime">00:00</i></span>
+				</div>                        <!-- 歌曲名称和时间 -->
+                <div class="pro">                                    <!-- 进度条 -->
+                    <div class="progress-middle">                    <!-- 包裹有颜色的进度条 -->
+                        <span class="progress-move"></span>          <!-- 有颜色的进度条 -->
+                    </div>
+                    <div class="drag-playhead">                      <!-- 总进度条 -->
+                        <span class="icon-playhead"></span>          <!-- 按钮标签 -->
+                    </div>
+                </div>
+            </div>
+            <div class="p-content-right"></div>
+        </div>
+    </div>
+    <audio src="music/0.mp3" id="audio"></audio>
+<script src="./js/lyrics.js"></script>
+<script src="./js/player.js"></script>
+</body>
+</html>
