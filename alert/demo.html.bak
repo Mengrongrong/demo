@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>简单弹出框组件</title>
+  <style type="text/css">
+      html,body{
+	    position: relative;
+	    margin: 0;
+		padding: 0;
+	}
+    .screen{
+	    position: fixed;
+	    left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	    background-color: black;
+		opacity: 0.5;
+		z-index: 999;
+	}
+    .pop{
+	    position: absolute;
+	    width: 100px;
+		height: 40px;
+		top: 80%;
+		left: 50%;
+		margin: 0 0 0 -50px;
+		background-color: red;
+		color: white;
+		font-size: 16px;
+		line-height: 40px;
+		text-align: center;
+		border-radius: 5px;
+	    cursor: pointer;
+	}
+
+	.alert{
+	    position: fixed;
+	    width: 400px;
+		height: 250px;
+		left: 50%;
+		top: 40%;
+		margin: -125px 0 0 -200px;
+		background-color: #cc0000;
+		border-radius: 10px;
+		z-index: 1000;
+	}
+
+	.alert-title{
+	    height: 40px;
+		line-height: 60px;
+		color: white;
+		font-size: 20px;
+		text-align: center;
+	}
+
+	.alert-content{
+	    height: 150px;
+		line-height: 120px;
+		color: white;
+		font-size: 20px;
+		text-align: center;
+	}
+
+	.laert-btn{
+	    position: relative;
+	    height: 60px;
+		border: 1px solid black;
+	}
+
+	.alert-btn-confirm, .alert-btn-cancel{
+	    position: absolute;
+	    width: 199px;
+		height: 60px;
+		background-color: white;
+		color: #cc0000;
+		font-size: 22px;
+		line-height: 60px;
+		text-align: center;
+		border-radius: 0 0 0 5px;
+		cursor: pointer;
+	}
+
+	.alert-btn-cancel{
+	    left: 201px;
+		border-radius: 0 0 5px 0;
+	}
+  </style>
+ </head>
+ <body>
+  <button class="pop" onclick="pop()">弹出窗口</button>
+
+  <script src="js/jquery.js"></script>
+  <script>
+
+  //定义带参函数
+  function alert(param){
+      var title = param.title,
+		  content = param.content,
+		  yesText = param.yesText || '确定',
+		  noText = param.noText || '取消';
+    
+
+	  //定义DOM结构
+	  var html = '<div class="screen"></div><div class="alert"><div class="alert-title">'+ title +'</div><div class="alert-content">'+ content +'</div>'+
+		'<div class="alert-btn"><div class="alert-btn-confirm">'+ yesText +'</div><div class="alert-btn-cancel">'+ noText +'</div></div></div>';
+
+	  //添加DOM结构
+	  $('body').append(html);
+
+	  //绑定事件
+	  $('.alert-btn-confirm,.alert-btn-cancel').click(function(){
+	      $('.alert').remove();
+		  $('.screen').remove();
+	  });
+  }
+
+  //调用组件
+  function pop(){
+     alert({
+        title:'NOTICE',
+        content:'Please try again',
+        noText:'cancel',
+        yesText:'confirm'
+    })
+ }
+  </script>
+ </body>
+</html>
